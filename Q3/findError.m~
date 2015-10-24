@@ -27,14 +27,14 @@ posterior_c4=gaussian(predictedData(:,2:end),mu_c4x,cov_c4x) * prior_c4;
 p=zeros(size(predictedData,1),1);
 
 for i=1:size(predictedData,1)
-    maximum=max([posterior_c1(i) posterior_c2(i) posterior_c3(i) posterior_c4(i)]);
-    if  maximum == posterior_c1(i)
+    maximum=max([gaussian_c1(i) gaussian_c2(i) gaussian_c3(i) gaussian_c4(i)]);
+    if  maximum == gaussian_c1(i)
         p(i)=1;
-    elseif maximum == posterior_c2(i)
+    elseif maximum == gaussian_c2(i)
         p(i)=3;
-    elseif maximum == posterior_c3(i)
+    elseif maximum == gaussian_c3(i)
         p(i)=7;
-    elseif maximum == posterior_c4(i)
+    elseif maximum == gaussian_c4(i)
         p(i)=8;
     end;
 end;
